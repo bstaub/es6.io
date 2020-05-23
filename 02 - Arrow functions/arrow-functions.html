@@ -8,10 +8,12 @@
 <script>
   const names = ['wes', 'kait', 'lux'];
 
+  // vor der arrow function...
   const fullNames = names.map(function(name) {
     return `${name} bos`;
   });
 
+  // nach der arrow function...
   const fullNames2 = names.map((name) => {
     return `${name} bos`;
   });
@@ -24,11 +26,17 @@
 
   const fullNames5 = names.map(() => `cool bos`);
 
+  // eine arrow function hat nie ein name, man kann eine arrow function aber einer variable zuweisen
   const sayMyName = (name) => {
     alert(`Hello ${name}!`)
   }
 
   sayMyName('Wes');
+
+  // es gibt drei Vorteile bei Arrow Funktions
+  // 1. kompakter
+  // 2. haben expliziten rückgabewert
+  // 3. kein rebind von this context
 
 </script>
 </body>

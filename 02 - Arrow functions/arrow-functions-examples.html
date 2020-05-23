@@ -10,12 +10,21 @@
 const race = '100m Dash';
 const winners = ['Hunter Gath', 'Singa Song', 'Imda Bos'];
 
+
+// explizite rückgaben muss man nicht in klammer schreiben, hier geben wir aber ein objekt zurück {}, um dieses müssen wir noch Klammern () setzen also ({})
 const win = winners.map((winner, i) => ({name: winner, race, place: i + 1}));
 
 const ages = [23,62,45,234,2,62,234,62,34];
 
 const old = ages.filter(age => age >= 60);
 console.log(old);
+
+// old way with if..
+const old2 = ages.filter(age => {
+  if(age >=60) { return age } });
+console.log(old2);
+
+
 
 </script>
 </body>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>let and const real world</title>
+</head>
+<body>
+<script>
+  // you dont need iife with let or const
+  (function() {
+    var name = 'bruno';
+    console.log(name);
+  })();
+  // no access of name from outside the function
+
+
+
+  // just use the block scope
+  { 
+    let name2 = 'bruno2';
+    console.log(name2);
+  }
+  // no access of name2 from outside the block
+
+
+  // use const by Default
+  // only use let if rebinding is needed
+  // (var shouldn't be used in ES6)
+  // use var for top-level variables that are shared across many (especially larger) scopes.
+  
+</script>
+</body>
+</html>
