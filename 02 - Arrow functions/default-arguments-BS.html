@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Default Arguments</title>
+</head>
+<body>
+<script>
+  function calculateBill(total, tax = 0.13, tip = 0.15) {
+// old variante without default parameter, still good
+//    tax = tax || 0.13;
+//    tip = tip || 0.15;
+
+// ugly old way, before default parameter from es6
+//    if(tax === undefined) {
+//      tax = 0.13;
+//    }
+//    if(tip === undefined) {
+//      tip = 0.15;
+//    }
+
+  return total + (total * tax) + (total * tip);
+}
+
+  //const totalBill = calculateBill(100, 0.13, 0.25);
+  //const totalBill = calculateBill(100, undefined, 0.25);
+  const totalBill = calculateBill(100);
+  
+  console.log(totalBill);
+</script>
+</body>
+</html>

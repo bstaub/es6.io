@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Arrow Functions</title>
+  </head>
+  <body>
+    <style>
+      .wrap {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: sans-serif;
+        font-weight: 100;
+        color: white;
+      }
+
+      .box {
+        background: black url(https://unsplash.it/1500/1500?image=560&blur=0.5)
+          center fixed no-repeat;
+        width: 50px;
+        height: 50px;
+        padding: 50px;
+        transition: width 0.2s, height 0.6s;
+        position: relative;
+      }
+
+      .box.opening {
+        width: 500px;
+        height: 500px;
+      }
+
+      .box h2 {
+        position: absolute;
+        width: 100%;
+        font-size: 100px;
+        transform: translateX(-220%);
+        transition: all 0.5s;
+        top: 0;
+      }
+
+      .box p {
+        position: absolute;
+        width: 100%;
+        transform: translateX(200%);
+        transition: all 0.5s;
+        bottom: 0;
+      }
+
+      .box.open > * {
+        transform: translateX(0%);
+      }
+    </style>
+
+    <div class="wrap">
+      <div class="box">
+        <h2>STBR</h2>
+        <p class="social">@stbr</p>
+      </div>
+    </div>
+
+    <script>
+      const box = document.querySelector('.box');
+
+      // hier function und nicht arrow benutzen, weil wir this an die box gebunden haben möchten!
+      box.addEventListener('click', function () {
+        // var that = this;
+        let first = 'opening';
+        let second = 'open';
+
+        if (this.classList.contains(first)) {
+          // switch them
+          [first, second] = [second, first];
+        }
+        this.classList.toggle(first); //this an box gebunden
+        
+        // mit function hätten wir hier window, arrow behält this context -> also von parent eventlistener click
+        // wenn wir mit function arbeitn möchten müssten wir that nehmen
+        setTimeout(() => {
+          this.classList.toggle(second);  //Also mit this durch arrwow noch immer an Box gebunden, zuerst Schrift Animation verzögert, dann Box schliessen verzögert
+        }, 250);
+      });
+    </script>
+  </body>
+</html>

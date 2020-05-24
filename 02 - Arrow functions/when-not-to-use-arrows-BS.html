@@ -12,7 +12,7 @@
 <button id="pushy">Push Me</button>
 
 <script>
-  // When you really need `this`
+  // When you really need `this` then don't use arrow..
   const button = document.querySelector('#pushy');
   button.addEventListener('click', function() {
     console.log(this);
@@ -22,11 +22,20 @@
   // When you need a method to bind to an object
   const person = {
     points: 23,
+    // new way
     score() {
+      console.log(this);
+      this.points++;
+    },
+    // old way that works, don't use arrow () => otherwise this context is window!
+    score2: function() {
       console.log(this);
       this.points++;
     }
   }
+  // person.score()
+  // person.score2()
+  // person.points
 
   // When you need to add a prototype method
   class Car {
@@ -39,10 +48,12 @@
   const beemer = new Car('bmw', 'blue');
   const subie = new Car('Subaru', 'white');
 
+  // use function() dont' use arrow () => because this would be bound to window!
   Car.prototype.summarize = function() {
-     return `This car is a ${this.make} in the colour ${this.colour}`;
+      return `This car is a ${this.make} in the colour ${this.colour}`;
   };
 
+  // When you need arguments object, you can't use arrow () => and must use function() otherwise you never get arguments!
   const orderChildren = function() {
     const children = Array.from(arguments);
     return children.map((child, i) => {
@@ -50,6 +61,7 @@
     })
     console.log(arguments);
   }
+  // orderChildren('bruno','miri','rira');
 
 
 </script>
