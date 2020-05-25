@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+
+
+
+<script>
+
+function highlight(strings, ...values){
+  // debugger;
+
+  // return myDict.HTML;
+  // return myDict['HTML'];
+
+  const abkuerzung = values.map(value => {
+    if(myDict[value]){
+      return `<abbr title="${myDict[value]}">${value}</abbr>`
+    }
+    return value;
+  });
+  //console.log(abkuerzung);
+
+
+  return strings.reduce((total, acc, i) => {
+    return total + acc + (abkuerzung[i] || '');
+  },'>>>');
+
+}
+
+
+const myDict = {
+  HTML: 'Dies ist HTML',
+  CSS: 'CSS Style Sheet',
+  JS: 'JavaScript kommt hier'
+}
+
+let first = 'Bruno';
+// mac backtick shift + ``
+let mytemplate = highlight`${first} hier kommt ${'HTML'} und ${'CSS'} und auch ${'JS'} vor`;
+
+
+let p = document.createElement('p');
+p.innerHTML = mytemplate;
+document.body.append(p);
+
+</script>
+  
+</body>
+</html>

@@ -16,12 +16,18 @@ const model = 'x5';
 const colour = 'Royal Blue';
 
 // .startsWith()
+// course.startWith('RFB');  //true, is case sensitive, when you don't need case sensitive use regex
+// flightNumber.startsWith('AC', 3);   //true, weil wir ab index3 starten
 
 // .endsWith()
+// flightNumber.endsWith('jz');        //true
+// accountNumber.endsWith('RT', 11);   //true, die ersten 11 Zeichen inkl. RT und am Schluss steht RT
 
 // .includes()
+// flightNumber.includes('AC');        //true is case sensitive! 
 
 // .repeat()
+//'🐰'.repeat(10)
 
 function leftPad(str, length = 20) {
   return `→ ${' '.repeat(length - str.length)}${str}`;
